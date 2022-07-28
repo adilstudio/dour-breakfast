@@ -1,0 +1,8 @@
+<h1>Supprimer Joueur</h1>
+<p>Retirer un joueur</p>
+
+<%= form_for(@joueur, method: 'delete') do |joueur| %>
+	<p>Etes-vous sûr de vouloir supprimer ce joueur?</p>
+	<p><%= joueur.nom %></p>
+	<%= joueur.submit("Delete", class: 'btn btn-danger') %>
+<% end %>

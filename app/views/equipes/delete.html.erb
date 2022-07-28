@@ -1,0 +1,8 @@
+<h1>Supprimer Equipe</h1>
+<p>Retirer une équipe</p>
+
+<%= form_for(@equipe, method: 'delete') do |equipe| %>
+	<p>Etes-vous sûr de vouloir supprimer cette équipe?</p>
+	<p><%= equipe.nom %></p>
+	<%= equipe.submit("Delete", class: 'btn btn-danger') %>
+<% end %>

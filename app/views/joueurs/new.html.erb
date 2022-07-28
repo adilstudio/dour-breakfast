@@ -1,0 +1,25 @@
+<h1>Créer un joueur</h1>
+<p>Création d'un nouveau joueur</p>
+
+
+<%= form_for @joueur do |f| %>
+  <div class="mb-3">
+    <div class="form-label"><%= f.label :nom %></div>
+    <%= f.text_field :nom, class: 'form-control' %>
+  </div>
+  <div class="mb-3">
+    <div class="form-label"><%= f.label :poste %></div>
+    <%= f.select(:poste, ["Heal", "Tank", "DPS"], class: 'form-control') %>
+  </div>
+  <div class="mb-3">
+    <div class="form-label"><%= f.label :equipe %></div>
+    <%= f.collection_select( :equipes_id, Equipe.all, :id, :nom, prompt: true) %>
+  </div>
+  <div class="mb-3">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<script type="text/javascript"> var id_choisi = $( "select#joueur_equipes_id option:checked" ).val(); </script>
+
+<%= result=Joueur.where("equipes_id LIKE ?", "").count() %>

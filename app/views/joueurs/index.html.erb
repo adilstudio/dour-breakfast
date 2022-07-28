@@ -1,0 +1,19 @@
+<h1>Liste Joueurs</h1>
+<p>Visualiser nos joueurs</p>
+
+<table class="table table-striped table-bordered table-hover table-condensed">
+  <tr>
+		<th>Name</th>
+    <th>Position</th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% @joueur.each do |f| %>
+  <tr>
+    <td><%= f.nom %></td>
+		<td><%= f.poste %></td>
+    <td><a href="<%= edit_joueur_path(f.id) %>" class="btn btn-primary">Editer</a></td>
+    <td><a href="<%= deletejoueur_path(f.id) %>" class="btn btn-danger" data-method="DELETE">Supprimer</a></td>
+	</tr>
+  <% end %>
+</table>
