@@ -27,7 +27,6 @@ class JoueursController < ApplicationController
 
   def update
     @joueur = Joueur.find(params[:id])
-    joueur_params = params.require(:joueur).permit(:nom, :poste, :equipes_id)
     if @joueur.update(joueur_params)
       redirect_to joueurs_path, success: "Le joueur a bien été modifié"
     else

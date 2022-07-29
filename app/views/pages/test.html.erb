@@ -1,0 +1,57 @@
+<div class="align-items-left p-3 my-3 text-black bg-white rounded shadow-sm">
+  <h3>Le Tournoi</h3>
+  <p>C'est le moment tant attendu par le public, le tournoi commence.</p>
+</div>
+<div class="my-3 p-3 bg-body rounded shadow-sm">
+  <h4>Liste des 8 équipes et des 88 joueurs</h4>
+  <h5>Voici le listing de tous les joueurs selon leur équipe</h5>
+  <%= @arrayres[0] %>
+</div>
+<div class="my-3 p-3 bg-body rounded shadow-sm">
+  <h4>Liste des 28 matchs</h4>
+  <h5>Le tirage au sort des matchs a commencé, on annonce les duels des équipes</h5>
+  <%= @arrayres[1] %>
+</div>
+<div class="my-3 p-3 bg-body rounded shadow-sm">
+  <h4>Résultat des 28 matchs</h4>
+  <h5>Toutes les équipes ont terminé leur duel, le score de chaque match est annoncé</h5>
+  <%= @arrayres[2] %>
+</div>
+<div class="my-3 p-3 bg-body rounded shadow-sm">
+  <h4>Liste des kills générés par équipe</h4>
+  <h5>La totalité des kills émits de chaque équipe est publiée</h5>
+  <%= @arrayres[3] %>
+</div>
+<div class="my-3 p-3 bg-body rounded shadow-sm">
+  <h4>Liste des kills reçues par équipe</h4>
+  <h5>La totalité des kills encaissés de chaque équipe est publiée</h5>
+  <%= @arrayres[4] %>
+</div>
+<div class="my-3 p-3 bg-body rounded shadow-sm">
+  <h4>Liste des points par équipe</h4>
+  <h5>Le nombre de points pour chaque équipe est rendu public</h5>
+  <%= @arrayres[5] %>
+</div>
+<div class="my-3 p-3 bg-body rounded shadow-sm">
+  <h4>Résultat des gagnants</h4>
+  <h5>Le ranking de toutes nos équipes est là, la victore de l'équipe N°<%= @premier[0] %> est annoncée à <%= @premier[1] %> points !</h5>
+  <%= @arrayres[6] %>
+</div>
+<table class="table table-striped table-bordered table-hover table-condensed">
+  <tr>
+		<th>N° Equipe</th>
+    <th>Points</th>
+    <th>Kill reçus</th>
+    <th>kill marqués</th>
+  </tr>
+  <% @compt=0 %>
+  <% @thepkg.each do |f| %>
+    <tr>
+      <td><%= @therank[@compt].split(",")[0] %></td>
+      <td><%= @therank[@compt].split(",")[1] %></td>
+      <td><%= @thepkp[@therank[@compt].split(",")[0].to_i - 1].split(":")[1] %></td>
+      <td><%= @thepkg[@therank[@compt].split(",")[0].to_i - 1].split(":")[1] %></td>
+    </tr>
+    <% @compt+=1 %>
+  <% end %>
+</table>

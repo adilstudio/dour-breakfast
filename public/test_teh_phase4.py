@@ -45,7 +45,7 @@ for i in range(1, 9):
         players_nums.remove(random_player)
     teams.append(str(i))
 
-print(dic_teamplay)
+#print(dic_teamplay)
 
 #A First sorting for the teams play in the tournament
 
@@ -65,12 +65,12 @@ i = 0
 
 for z in range(len(tournament)):
     choix = random.choice(tournament)
-    print(choix)
+    #print(choix)
     tournament.remove(choix)
     i = i + 1
     tournament_[i] = choix.split("_")
 
-print(tournament_)
+#print(tournament_)
 
 #Create the games with the teams and start it to get the results
 tournament_result = {}
@@ -80,7 +80,7 @@ for x, y in tournament_.items():
     a.append(random.randint(0, 5))
     tournament_result[x] = a
 
-print(tournament_result)
+#print(tournament_result)
 
 #Calculate the results stats for each team
 
@@ -106,10 +106,10 @@ for x, y in tournament_.items():
     else:
         dict0[int(y[1])] += 3
 
-print("kill goals:", dict1)
-print("kill received:", dict2)
+#print("kill goals:", dict1)
+#print("kill received:", dict2)
 
-print("points:", dict0)
+#print("points:", dict0)
 
 #df = pd.DataFrame.from_dict(dict0)
 #df.sort_values(ascending=False)

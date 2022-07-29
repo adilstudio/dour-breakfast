@@ -3,10 +3,6 @@
 #Test for troizaire part 4
 import random
 #import pandas as pd
-import cgitb
-cgitb.enable()
-
-#start_response('200 OK', [('Content-Type', 'text/html')])
 
 #Create the player class
 class Player():
@@ -65,7 +61,7 @@ i = 0
 
 for z in range(len(tournament)):
     choix = random.choice(tournament)
-    print(choix)
+    #print(choix)
     tournament.remove(choix)
     i = i + 1
     tournament_[i] = choix.split("_")
@@ -105,16 +101,18 @@ for x, y in tournament_.items():
         dict0[int(y[0])] += 3
     else:
         dict0[int(y[1])] += 3
+#kill goals
+print(dict1)
 
-print("kill goals:", dict1)
-print("kill received:", dict2)
-
-print("points:", dict0)
+#kill received
+print(dict2)
+#points
+print(dict0)
 
 #df = pd.DataFrame.from_dict(dict0)
 #df.sort_values(ascending=False)
 #print (df)
 
 dict = sorted(dict0.items(), key=lambda kv: kv[1], reverse=True)
-
-print("rank:", dict)
+#rank
+print(dict)

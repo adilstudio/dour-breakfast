@@ -5,6 +5,7 @@
   <tr>
 		<th>Name</th>
     <th>Position</th>
+    <th>N° Equipe</th>
     <th></th>
     <th></th>
   </tr>
@@ -12,6 +13,7 @@
   <tr>
     <td><%= f.nom %></td>
 		<td><%= f.poste %></td>
+    <td><%= f.equipes_id %></td>
     <td><a href="<%= edit_joueur_path(f.id) %>" class="btn btn-primary">Editer</a></td>
     <td><a href="<%= deletejoueur_path(f.id) %>" class="btn btn-danger" data-method="DELETE">Supprimer</a></td>
 	</tr>

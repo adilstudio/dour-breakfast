@@ -28,7 +28,6 @@ class EquipesController < ApplicationController
 
   def update
     @equipe = Equipe.find(params[:id])
-    equipe_params = params.require(:equipe).permit(:nom, :ville)
     if @equipe.update(equipe_params)
       redirect_to equipes_path, success: "L'équipe a bien été modifiée"
     else

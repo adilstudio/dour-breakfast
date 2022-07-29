@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root to: 'pages#home'
+  get 'test', to: 'pages#test', as: 'test'
   get 'equipes', to: 'equipes#index', as: 'accueil'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :equipes
