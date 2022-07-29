@@ -22,4 +22,4 @@
 
 <script type="text/javascript"> var id_choisi = $( "select#joueur_equipes_id option:checked" ).val(); </script>
 
-<%= result=Joueur.where("equipes_id LIKE ?", "").count() %>
+<% result=Joueur.where("equipes_id LIKE ?", "").count() %>
