@@ -15,7 +15,7 @@ class JoueursController < ApplicationController
     @joueur = Joueur.create(joueur_params)
 
     if @joueur.save
-      redirect_to joueurs_path(@joueur.id), success: "Le joueur a bien été créé"
+      redirect_to joueurs_path(@joueur.id), notice: "Le joueur a bien été créé"
     else
       render :new
     end
@@ -23,14 +23,18 @@ class JoueursController < ApplicationController
 
   def edit
     @joueur = Joueur.find(params[:id])
+
   end
 
   def update
     @joueur = Joueur.find(params[:id])
-    if @joueur.update(joueur_params)
-      redirect_to joueurs_path, success: "Le joueur a bien été modifié"
-    else
-      render :edit
+    respond_to do |format|
+      if @joueur.update(joueur_params)
+          format.js
+          format.html { redirect_to joueurs_path, success: "Le joueur a bien été modifié" }
+      else
+        render :edit
+      end
     end
   end
 
@@ -50,4 +54,6 @@ class JoueursController < ApplicationController
     params.require(:joueur).permit(:nom, :poste, :equipes_id)
 
   end
+
+
 end
